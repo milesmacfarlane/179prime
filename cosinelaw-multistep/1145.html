@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v. 1145 — Answers — 179 Prime Learning</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 11pt; line-height: 1.5; color: #1a1a1a;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+
+    @page {
+      size: letter portrait;
+      margin: 0.6in 0.7in 0.7in 0.7in;
+      @top-center {
+        content: "";
+        font-size: 7.5pt; color: #9a9a9a;
+        font-family: -apple-system, 'Segoe UI', sans-serif;
+      }
+      @bottom-center {
+        content: "© 2025 179 Prime Learning  |  https://www.teacherspayteachers.com/store/179-prime-learning";
+        font-size: 7.5pt; color: #8a8a8a;
+        font-family: -apple-system, 'Segoe UI', sans-serif;
+      }
+      @bottom-right {
+        content: counter(page);
+        font-size: 7.5pt; color: #b0b0b0;
+      }
+    }
+
+    /* Screen preview: show as stacked letter cards */
+    html { background: #e8eaed; }
+    .sheet {
+      width: 7.1in; min-height: 9.2in;
+      margin: 0.35in auto; padding: 0.1in 0;
+      background: #fff; box-shadow: 0 2px 14px rgba(0,0,0,0.16);
+    }
+    @media print {
+      html { background: #fff; }
+      .sheet { width: auto; min-height: 0; margin: 0; padding: 0;
+               box-shadow: none; }
+      .page-break { break-after: page; }
+    }
+    .page-break { break-after: page; }
+
+    /* ─── Brand mark (inline SVG logo) ─── */
+    .pl-brand svg { display: block; height: auto; }
+    .pl-brand--cover svg  { width: 268px; }
+    .pl-brand--answer svg { width: 230px; }
+
+    /* ─── Cover (one printed page; professional treatment) ───
+       Brand palette: deep navy #1F4E79 (banner-blue family), soft
+       #3C6088, wash #EAF1F8. Card/answer pages stay ink-light. */
+    .cover-frame {
+      border: 2.5pt solid #1F4E79;
+      padding: 18px 26px 14px;
+      height: 9.45in;            /* fixed: fills the page, can't spill */
+    }
+    .cover-frame .pl-brand--cover { margin-bottom: 2px; }
+
+    .manifesto-box {
+      background: #EAF1F8; border-left: 4px solid #1F4E79;
+      border-radius: 3px; padding: 7px 13px; margin-top: 8px;
+    }
+    .manifesto p { font-size: 8.5pt; color: #33414f; margin: 2px 0; line-height: 1.35; }
+
+    .rule { border: none; border-top: 2px solid #1F4E79; margin: 9px 0 8px; }
+
+    .cover-title {
+      font-size: 17pt; font-weight: 800; color: #1F4E79;
+      margin: 1px 0 3px; letter-spacing: -0.2px;
+    }
+    .cover-title-accent {
+      width: 62px; height: 4px; background: #1F4E79;
+      border-radius: 2px; margin: 0 0 8px;
+    }
+    .cover-intro p { margin: 0 0 5px; font-size: 9.5pt; line-height: 1.38; }
+    .cover-bullets-lead { margin: 3px 0 4px; font-weight: 600; }
+    .cover-bullets { margin: 0 0 8px 6px; list-style: none; }
+    .cover-bullets li { margin: 2px 0; padding-left: 18px; position: relative;
+      font-size: 9.5pt; }
+    .cover-bullets li::before {
+      content: "▪"; color: #1F4E79; position: absolute; left: 2px;
+    }
+    .two-col { display: flex; gap: 30px; }
+    .two-col .col { flex: 1; }
+    .two-col h3 {
+      font-size: 10pt; color: #1F4E79; text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 5px;
+      padding-bottom: 2px; border-bottom: 1.5px solid #C9DCEF;
+    }
+    .tc-item { margin: 0 0 6px; font-size: 8.5pt; line-height: 1.3; }
+    .tc-item b { display: block; color: #3C6088; }
+
+    /* ─── Card pages (2 per page) ─── */
+    .card-page { display: flex; flex-direction: column;
+                 min-height: 9.0in; }
+    @media print { .card-page { min-height: 9.0in; break-after: page; } }
+    .card-page:last-child { break-after: auto; }
+    .pl-card { flex: 1; padding: 6px 2px 4px; }
+    .card-meta { display: flex; justify-content: space-between;
+                 font-size: 8pt; color: #555; }
+    .card-prompt { margin: 4px 0 10px; font-weight: 600; }
+    .cut-line { border: none; border-top: 1.5px dashed #b0b0b0;
+                margin: 10px 0; }
+
+    table.amort { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+    table.amort th, table.amort td {
+      border: 1px solid #333; padding: 7px 8px; text-align: center;
+    }
+    table.amort thead th { background: #ececec; font-weight: 700; }
+    table.amort td.date { font-weight: 600; white-space: nowrap; }
+    .blank-cell { color: #fff; }      /* nothing printed; cell stays empty */
+
+    /* ─── Generated figure (geometry cards) ─── */
+    .card-fig { text-align: center; margin: 6px 0 8px; }
+    .card-fig svg.tri  { width: 330px; height: auto; max-width: 100%; }
+    .card-fig .vtx  { font: 700 13px 'Segoe UI',Arial,sans-serif;
+                      fill: #1a1a1a; }
+    .card-fig .ang  { font: 700 12px 'Segoe UI',Arial,sans-serif;
+                      fill: #1F4E79; }
+    .card-fig .side { font: 600 11px 'Segoe UI',Arial,sans-serif;
+                      fill: #33414f; }
+
+    .card-foot { display: flex; justify-content: space-between;
+                 align-items: flex-end; margin-top: 10px; gap: 18px; }
+    .tasks { flex: 1; }
+    .task { margin: 12px 0; display: flex; align-items: flex-end; gap: 8px; }
+    .task-label { white-space: nowrap; }
+    .task-rule { flex: 1; border-bottom: 1px solid #222; height: 0.95em; }
+    .qr-wrap { text-align: center; width: 92px; }
+    .qr-wrap .qr-cap { font-size: 7.5pt; color: #555; margin-bottom: 2px; }
+    .qr-wrap svg { width: 76px; height: 76px; }
+
+    /* ─── Answer key ─── */
+    .ak-title { font-size: 14pt; font-weight: 700; margin-bottom: 14px; }
+    .ak-grid { column-count: 2; column-gap: 30px; font-size: 8.5pt; }
+    .ak-item { break-inside: avoid; margin: 0 0 10px; }
+    .ak-item .ak-v { font-weight: 700; }
+    .ak-item ul { margin: 2px 0 0 4px; list-style: none; }
+    .ak-item li { position: relative; padding-left: 13px; margin: 1px 0; }
+    .ak-item li::before { content: "•"; position: absolute; left: 1px; color: #888; }
+
+    /* ─── Single-version answer page (QR target) ─── */
+    .ans-page { max-width: 6.4in; margin: 0.5in auto; }
+    .ans-page h1 { font-size: 15pt; margin-bottom: 4px; }
+    .ans-page .sub { color: #666; margin-bottom: 18px; font-size: 10pt; }
+    .ans-page table { width: 100%; border-collapse: collapse; }
+    .ans-page td { padding: 7px 6px; border-bottom: 1px solid #e0e0e0; }
+    .ans-page td.k { color: #555; }
+    .ans-page td.val { text-align: right; font-weight: 700;
+                       font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body>
+
+<div class="ans-page">
+  <div class="pl-brand pl-brand--answer" style="margin-bottom:18px">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-835.47 -205.23 1773 470" role="img" aria-label="179 Prime Learning">
+  <g transform="matrix(3.65135, 0, 0, 3.65135, 3378.536722, 1066.514436)">
+    <path fill="#000000" d="M -1114.2 -339.25 C -1106.7 -338.42 -1099.3 -338.75 -1092.7 -336.52 C -1076.9 -331.18 -1070.8 -317.23 -1071.5 -304.99 C -1072.4 -288.91 -1083.8 -276.39 -1099.2 -274.29 C -1107 -273.23 -1115.1 -274.1 -1123.4 -274.1 C -1123.4 -277.98 -1123.4 -282.18 -1123.4 -286.95 C -1117.2 -286.95 -1111 -286.72 -1104.9 -287 C -1091.6 -287.62 -1083.2 -299.14 -1086.9 -311.96 C -1089.2 -319.96 -1095 -324.76 -1103.1 -325.51 C -1111.2 -326.25 -1119.3 -325.67 -1127.8 -325.67 C -1127.8 -295.42 -1127.8 -265.51 -1127.8 -235.32 C -1132.8 -235.32 -1137.4 -235.32 -1142.3 -235.32 C -1142.3 -269.78 -1142.3 -304.19 -1142.3 -339.25 C -1133.3 -339.25 -1124 -339.25 -1114.2 -339.25 Z"/>
+    <path fill="#000000" d="M -1074.2 -235.08 C -1079 -235.08 -1083.3 -235.08 -1088.4 -235.08 C -1088.4 -239.21 -1090.2 -265.02 -1087.9 -270.77 C -1085.7 -276.16 -1079.3 -279.84 -1074.1 -284.92 C -1074.1 -272.48 -1074.1 -260.83 -1074.1 -248.64 C -1061 -248.64 -1048.5 -248.64 -1010.122 -248.64 C -1010.122 -244.03 -1010.122 -239.95 -1010.122 -235.08 C -1048.3 -235.08 -1061 -235.08 -1074.2 -235.08 Z"/>
+    <path fill="#000000" d="M -1082.5 -335.91 C -1083.9 -336.93 -1085.1 -337.74 -1086.9 -338.96 C -1082.2 -338.96 -1078.2 -338.96 -1074.2 -338.96 C -1074.2 -335.52 -1074.2 -332.18 -1074.2 -328.47 C -1077.1 -331.11 -1079.6 -333.41 -1082.5 -335.91 Z"/>
+  </g>
+  <g fill="#000000" transform="matrix(1, 0, 0, 1, -1781.876518, -0.205348)">
+    <text textLength="1170" lengthAdjust="spacingAndGlyphs" style="font-family: 'Arial Rounded MT Bold', Nunito, Quicksand, 'Baloo 2', Verdana, sans-serif; font-size: 120px; font-weight: 800; white-space: pre;" x="270" y="222" dx="976.117" dy="-83.151">179 Prime Learning</text>
+  </g>
+  <rect x="459.203" y="-69.738" width="68.337" height="67.17" fill="#D9D9D9"/>
+  <rect x="664.229" y="-3.556" width="68.337" height="68.726" fill="#D9D9D9"/>
+  <rect x="800.741" y="-137.03" width="68.726" height="67.559" fill="#D9D9D9"/>
+</svg></div>
+  <h1>Cosine Law — Classify, Largest Angle &amp; Area (Multi-Step)</h1>
+  <div class="sub">Answer key &middot; version 1145 &middot; Jonah</div>
+  <table>
+    
+    <tr><td class="k">(a) Type</td><td class="val">right</td></tr>
+    
+    <tr><td class="k">(b) Largest angle</td><td class="val">90.0°</td></tr>
+    
+    <tr><td class="k">(c) Area</td><td class="val">210.0 cm²</td></tr>
+    
+  </table>
+  <p style="margin-top:22px;font-size:9pt;color:#888">
+    Scanned from a printed card. Each version has unique numbers — confirm the
+    version number matches your sheet.
+  </p>
+</div>
+
+</body>
+</html>
