@@ -15,6 +15,11 @@
     @page {
       size: letter portrait;
       margin: 0.6in 0.7in 0.7in 0.7in;
+      @top-center {
+        content: "";
+        font-size: 7.5pt; color: #9a9a9a;
+        font-family: -apple-system, 'Segoe UI', sans-serif;
+      }
       @bottom-center {
         content: "© 2025 179 Prime Learning  |  https://www.teacherspayteachers.com/store/179-prime-learning";
         font-size: 7.5pt; color: #8a8a8a;
@@ -109,6 +114,16 @@
     table.amort thead th { background: #ececec; font-weight: 700; }
     table.amort td.date { font-weight: 600; white-space: nowrap; }
     .blank-cell { color: #fff; }      /* nothing printed; cell stays empty */
+
+    /* ─── Generated figure (geometry cards) ─── */
+    .card-fig { text-align: center; margin: 6px 0 8px; }
+    .card-fig svg.tri  { width: 330px; height: auto; max-width: 100%; }
+    .card-fig .vtx  { font: 700 13px 'Segoe UI',Arial,sans-serif;
+                      fill: #1a1a1a; }
+    .card-fig .ang  { font: 700 12px 'Segoe UI',Arial,sans-serif;
+                      fill: #1F4E79; }
+    .card-fig .side { font: 600 11px 'Segoe UI',Arial,sans-serif;
+                      fill: #33414f; }
 
     .card-foot { display: flex; justify-content: space-between;
                  align-items: flex-end; margin-top: 10px; gap: 18px; }
