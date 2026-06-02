@@ -1,0 +1,439 @@
+<!-- © 2026 Miles MacFarlane · All rights reserved · macfarlane.ws · Built with Claude Code -->
+<!DOCTYPE html>
+<!-- © 2026 Miles MacFarlane · All rights reserved · macfarlane.ws · Built with Claude Code -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v. 1168 — Answers — 179 Prime Learning</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 11pt; line-height: 1.5; color: #1a1a1a;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+
+    @page {
+      size: letter portrait;
+      margin: 0.6in 0.7in 0.7in 0.7in;
+      @top-center {
+        content: "";
+        font-size: 7.5pt; color: #9a9a9a;
+        font-family: -apple-system, 'Segoe UI', sans-serif;
+      }
+      @bottom-center {
+        content: "© 2025 179 Prime Learning  |  https://www.teacherspayteachers.com/store/179-prime-learning";
+        font-size: 7.5pt; color: #8a8a8a;
+        font-family: -apple-system, 'Segoe UI', sans-serif;
+      }
+      @bottom-right {
+        content: counter(page);
+        font-size: 7.5pt; color: #b0b0b0;
+      }
+    }
+
+    /* Screen preview: show as stacked letter cards */
+    html { background: #e8eaed; }
+    .sheet {
+      width: 7.1in; min-height: 9.2in;
+      margin: 0.35in auto; padding: 0.1in 0;
+      background: #fff; box-shadow: 0 2px 14px rgba(0,0,0,0.16);
+    }
+    @media print {
+      html { background: #fff; }
+      .sheet { width: auto; min-height: 0; margin: 0; padding: 0;
+               box-shadow: none; }
+      .page-break { break-after: page; }
+    }
+    .page-break { break-after: page; }
+
+    /* ─── Brand mark (inline SVG logo) ─── */
+    .pl-brand svg { display: block; height: auto; }
+    .pl-brand--cover svg  { width: 268px; }
+    .pl-brand--answer svg { width: 230px; }
+
+    /* ─── Cover (one printed page; professional treatment) ───
+       Brand palette: deep navy #1F4E79 (banner-blue family), soft
+       #3C6088, wash #EAF1F8. Card/answer pages stay ink-light. */
+    .cover-frame {
+      border: 2.5pt solid #1F4E79;
+      padding: 18px 26px 14px;
+      height: 9.45in;            /* fixed: fills the page, can't spill */
+    }
+    .cover-frame .pl-brand--cover { margin-bottom: 2px; }
+
+    .manifesto-box {
+      background: #EAF1F8; border-left: 4px solid #1F4E79;
+      border-radius: 3px; padding: 7px 13px; margin-top: 8px;
+    }
+    .manifesto p { font-size: 8.5pt; color: #33414f; margin: 2px 0; line-height: 1.35; }
+
+    .rule { border: none; border-top: 2px solid #1F4E79; margin: 9px 0 8px; }
+
+    .cover-title {
+      font-size: 17pt; font-weight: 800; color: #1F4E79;
+      margin: 1px 0 3px; letter-spacing: -0.2px;
+    }
+    .cover-title-accent {
+      width: 62px; height: 4px; background: #1F4E79;
+      border-radius: 2px; margin: 0 0 8px;
+    }
+    .cover-intro p { margin: 0 0 5px; font-size: 9.5pt; line-height: 1.38; }
+    .cover-bullets-lead { margin: 3px 0 4px; font-weight: 600; }
+    .cover-bullets { margin: 0 0 8px 6px; list-style: none; }
+    .cover-bullets li { margin: 2px 0; padding-left: 18px; position: relative;
+      font-size: 9.5pt; }
+    .cover-bullets li::before {
+      content: "▪"; color: #1F4E79; position: absolute; left: 2px;
+    }
+    .two-col { display: flex; gap: 30px; }
+    .two-col .col { flex: 1; }
+    .two-col h3 {
+      font-size: 10pt; color: #1F4E79; text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 5px;
+      padding-bottom: 2px; border-bottom: 1.5px solid #C9DCEF;
+    }
+    .tc-item { margin: 0 0 6px; font-size: 8.5pt; line-height: 1.3; }
+    .tc-item b { display: block; color: #3C6088; }
+
+    /* ─── Card pages (2 per page) ─── */
+    .card-page { display: flex; flex-direction: column;
+                 min-height: 9.0in; }
+    @media print { .card-page { min-height: 9.0in; break-after: page; } }
+    .card-page:last-child { break-after: auto; }
+    .pl-card { flex: 1; padding: 6px 2px 4px; }
+    .card-meta { display: flex; justify-content: space-between;
+                 font-size: 8pt; color: #555; }
+    .card-prompt { margin: 4px 0 10px; font-weight: 600; }
+    .cut-line { border: none; border-top: 1.5px dashed #b0b0b0;
+                margin: 10px 0; }
+
+    table.amort { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+    table.amort th, table.amort td {
+      border: 1px solid #333; padding: 7px 8px; text-align: center;
+    }
+    table.amort thead th { background: #ececec; font-weight: 700; }
+    table.amort td.date { font-weight: 600; white-space: nowrap; }
+    .blank-cell { color: #fff; }      /* nothing printed; cell stays empty */
+
+    /* ─── Generated figure (geometry cards) ─── */
+    .card-fig { text-align: center; margin: 6px 0 8px; }
+    .card-fig svg.tri  { width: 330px; height: auto; max-width: 100%; }
+    .card-fig .vtx  { font: 700 13px 'Segoe UI',Arial,sans-serif;
+                      fill: #1a1a1a; }
+    .card-fig .ang  { font: 700 12px 'Segoe UI',Arial,sans-serif;
+                      fill: #1F4E79; }
+    .card-fig .side { font: 600 11px 'Segoe UI',Arial,sans-serif;
+                      fill: #33414f; }
+
+    .card-foot { display: flex; justify-content: space-between;
+                 align-items: flex-end; margin-top: 10px; gap: 18px; }
+    .tasks { flex: 1; }
+    .task { margin: 12px 0; display: flex; align-items: flex-end; gap: 8px; }
+    .task-label { white-space: nowrap; }
+    .task-rule { flex: 1; border-bottom: 1px solid #222; height: 0.95em; }
+    .qr-wrap { text-align: center; width: 92px; }
+    .qr-wrap .qr-cap { font-size: 7.5pt; color: #555; margin-bottom: 2px; }
+    .qr-wrap svg { width: 76px; height: 76px; }
+
+    /* ─── Answer key ─── */
+    .ak-title { font-size: 14pt; font-weight: 700; margin-bottom: 14px; }
+    .ak-grid { column-count: 2; column-gap: 30px; font-size: 8.5pt; }
+    .ak-item { break-inside: avoid; margin: 0 0 10px; }
+    .ak-item .ak-v { font-weight: 700; }
+    .ak-item ul { margin: 2px 0 0 4px; list-style: none; }
+    .ak-item li { position: relative; padding-left: 13px; margin: 1px 0; }
+    .ak-item li::before { content: "•"; position: absolute; left: 1px; color: #888; }
+
+    /* ─── Single-version answer page (QR target) ─── */
+    .ans-page { max-width: 6.4in; margin: 0.5in auto; }
+    .ans-page h1 { font-size: 15pt; margin-bottom: 4px; }
+    .ans-page .sub { color: #666; margin-bottom: 18px; font-size: 10pt; }
+    .ans-page table { width: 100%; border-collapse: collapse; }
+    .ans-page td { padding: 7px 6px; border-bottom: 1px solid #e0e0e0; }
+    .ans-page td.k { color: #555; }
+    .ans-page td.val { text-align: right; font-weight: 700;
+                       font-variant-numeric: tabular-nums; }
+
+    /* ─── Multi-question card (one set per page) ───
+       Used when product.cards_per_page == 1. The card body fills the
+       printable area; the q-grid is a 2-col list of N sub-problems. */
+    .card-page--full .pl-card { padding: 4px 2px; }
+    .stu-head {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      border-bottom: 1.5px solid #1F4E79; padding-bottom: 5px; margin-bottom: 10px;
+    }
+    .stu-head .title { font-size: 13pt; font-weight: 800; color: #1F4E79;
+                       letter-spacing: -0.1px; }
+    .stu-head .title .ttype { display: block; font-size: 9pt; color: #3C6088;
+                              font-weight: 600; margin-top: 1px;
+                              letter-spacing: 0; }
+    .stu-head .meta { font-size: 9pt; text-align: right; color: #33414f; }
+    .stu-head .meta .setnum { font-weight: 700; color: #1F4E79; }
+    .name-row {
+      display: flex; gap: 18px; margin-bottom: 8px; font-size: 9.5pt;
+    }
+    .name-row .field { flex: 1; display: flex; gap: 6px; align-items: baseline; }
+    .name-row .field .lbl { color: #555; }
+    .name-row .field .line { flex: 1; border-bottom: 1px solid #999;
+                             height: 1.05em; }
+    .stu-instr { font-size: 9pt; color: #555; margin-bottom: 8px;
+                 font-style: italic; }
+    .rate-banner {
+      background: #EAF1F8; border-left: 4px solid #1F4E79;
+      padding: 6px 12px; margin: 4px 0 8px;
+      font-size: 10pt; color: #1F4E79;
+    }
+    .rate-banner b { font-family: 'SFMono-Regular', Consolas, monospace; }
+    .q-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      grid-auto-flow: column;
+      grid-template-rows: repeat(var(--rows, 9), auto);
+      gap: 4px 24px;
+      font-size: 10.5pt; font-variant-numeric: tabular-nums;
+    }
+    .q-grid .q {
+      display: flex; align-items: baseline; gap: 6px;
+      padding: 8px 0; border-bottom: 1px dotted #c8c8c8;
+    }
+    .q-grid .q .n { font-weight: 700; color: #1F4E79; min-width: 1.6em; }
+    .q-grid .q .body { flex: 1; }
+    .q-grid .q .ans {
+      display: inline-block; min-width: 72px;
+      border-bottom: 1px solid #222; height: 1.15em; margin-left: 6px;
+    }
+    /* ─── Dense single-column variant (OVERFLOW GUARD) ───
+       Single-column sets stack one long, wrapping prompt per row. At 11–13
+       items the default 8px-per-row rhythm overruns the 9.7in printable box
+       and silently spills onto a second sheet. This tighter rhythm keeps a
+       13-item single-column set inside one page. Applied by _banner_drill
+       (single mode) and _stats_drill. Do NOT raise items-per-set past the
+       limits in 179PRIME_RUNBOOK.md "Single-page budget" without re-auditing
+       (scripts/audit_prime_overflow.py). */
+    .q-grid--dense { gap: 2px 24px; line-height: 1.25; }
+    .q-grid--dense .q { padding: 3px 0; }
+    .stu-foot {
+      margin-top: 12px; padding-top: 8px; border-top: 1.5px solid #1F4E79;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 18px;
+    }
+    .stu-foot .check { font-size: 9pt; color: #1F4E79; }
+    .stu-foot .check .big { font-weight: 700; }
+    .stu-foot .check .url {
+      font-family: 'SFMono-Regular', Consolas, monospace;
+      font-size: 8.5pt; color: #3C6088;
+    }
+    .stu-foot .qr-wrap { width: 92px; text-align: center; }
+    .stu-foot .qr-wrap .qr-cap { font-size: 7.5pt; color: #555;
+                                 margin-bottom: 2px; }
+    .stu-foot .qr-wrap svg { width: 80px; height: 80px; }
+
+    /* ─── Figure-bearing variant (trig / geometry drill products).
+       Each cell holds a small triangle + a one-line prompt + an answer
+       blank. The same triangle_svg() helper is reused — only the CSS
+       width changes here. ─── */
+    .q-grid--fig { gap: 4px 18px; font-size: 10pt; }
+    .q-grid--fig .q.q-fig {
+      align-items: flex-start; padding: 2px 4px;
+      border-bottom: 1px dotted #c8c8c8;
+    }
+    .q-grid--fig .q.q-fig .body {
+      display: flex; flex-direction: column; gap: 1px; flex: 1;
+    }
+    .q-grid--fig .body .fig { text-align: center; margin: 0; line-height: 0; }
+    .q-grid--fig .body svg.tri { width: 195px; height: auto;
+                                 max-width: 100%; }
+    .q-grid--fig .body svg.tri .vtx  { font: 700 18px 'Segoe UI',Arial,sans-serif; }
+    .q-grid--fig .body svg.tri .ang  { font: 700 17px 'Segoe UI',Arial,sans-serif; }
+    .q-grid--fig .body svg.tri .side { font: 600 15px 'Segoe UI',Arial,sans-serif; }
+    /* Right-triangle variant: viewBox 240×220 (near-square) renders
+       taller than the oblique 330×220 at the same width and overflows
+       the 7-per-page grid. Width tuned so the rendered figure height
+       (~130 px) matches the oblique drills, with fonts scaled
+       proportionally so labels stay visually balanced. */
+    .q-grid--fig .body svg.tri.tri--right { width: 142px; }
+    .q-grid--fig .body svg.tri.tri--right .vtx  { font-size: 13px; }
+    .q-grid--fig .body svg.tri.tri--right .ang  { font-size: 12px; }
+    .q-grid--fig .body svg.tri.tri--right .side { font-size: 11px; }
+    .q-grid--fig .body .ask {
+      display: flex; align-items: baseline; gap: 6px;
+      font-weight: 600; color: #1F4E79; margin-top: 1px;
+    }
+    .q-grid--fig .body .ask .label { white-space: nowrap; }
+    .q-grid--fig .body .ask .ans { flex: 1; border-bottom: 1px solid #222;
+                                   height: 1.1em; }
+
+    /* ─── Stacked-question variant (e.g. unit pricing — two options
+       A & B and an answer line per item). ─── */
+    .q-grid--stacked { gap: 8px 24px; font-size: 10pt; }
+    .q-grid--stacked .q.q-stacked {
+      align-items: flex-start; padding: 8px 0;
+    }
+    .q-grid--stacked .q.q-stacked .body {
+      display: flex; flex-direction: column; gap: 1px;
+    }
+    .q-grid--stacked .body .item { font-weight: 700; color: #1F4E79;
+                                   margin-bottom: 1px; }
+    .q-grid--stacked .body .opt { font-size: 9.5pt; padding-left: 4px; }
+    .q-grid--stacked .body .ans-row {
+      margin-top: 3px; font-size: 9.5pt; color: #555;
+    }
+    .q-grid--stacked .body .ans.ans-short {
+      min-width: 32px;
+    }
+
+    /* ─── TpT thumbnail cover (the marketing image, distinct from the
+       printable cover page in document.html). Used by img.html and
+       img_bundle.html. 816×816 square. Sample sheet runs as the
+       background — tilted, breaking past the right edge so the canvas
+       feels like a "real artifact" peeking out. Navy hero block carries
+       the kicker + concept title with a 26×7 grid SVG behind it (the
+       brand's 182-cell prime grid, three lighter cells in the upper
+       right). Stats card overlays bottom-right; micro-skill stamp at
+       bottom-left. ─── */
+    .tpt-cover {
+      width: 816px; height: 816px;
+      background: #fff; color: #1a1a1a; position: relative; overflow: hidden;
+      font-family: 'Segoe UI', -apple-system, Helvetica, Arial, sans-serif;
+    }
+    .tpt-cover .tc-sample {
+      position: absolute; top: 360px; left: 70px;
+      width: 880px; height: 740px;
+      background: #fff;
+      border: 1.5px solid #C9DCEF; border-radius: 8px;
+      box-shadow: 0 30px 60px rgba(20,40,70,.18);
+      transform: rotate(-2.2deg); transform-origin: top left;
+      padding: 22px 28px 0; overflow: hidden;
+    }
+    /* The included card_template's stu-foot has its own QR; we don't
+       want a giant QR competing with the cover stats card. Hide it. */
+    .tpt-cover .tc-sample .stu-foot { display: none; }
+
+    .tpt-cover .tc-top {
+      position: absolute; top: 0; left: 0; right: 0;
+      padding: 22px 36px;
+      display: flex; align-items: center; gap: 12px;
+      z-index: 5; color: #1F4E79;
+    }
+    /* Wordmark + brand element, grouped in the upper-left corner.
+       Wordmark reads first, then the 9-cell banner with the A4/C6/G2
+       shaded cells. */
+    .tpt-cover .tc-top .brand-element { width: 70px; height: 42px;
+                                     fill: #1F4E79; }
+    .tpt-cover .tc-top .wordmark {
+      font-size: 17px; font-weight: 800; letter-spacing: .14em;
+      text-transform: uppercase; color: #1F4E79;
+    }
+
+    .tpt-cover .tc-hero {
+      position: absolute; top: 70px; left: 36px; right: 36px;
+      color: #fff; padding: 26px 32px;
+      z-index: 10; overflow: hidden;
+      box-shadow: 0 18px 44px rgba(20,40,70,.36);
+    }
+    .tpt-cover .tc-hero .tc-grid-bg {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      z-index: 1; pointer-events: none;
+    }
+    .tpt-cover .tc-hero > .tc-kicker,
+    .tpt-cover .tc-hero > .tc-title,
+    .tpt-cover .tc-hero > .tc-tag { position: relative; z-index: 2; }
+    .tpt-cover .tc-hero::after {
+      content: ""; position: absolute; right: -12px; bottom: -12px;
+      width: 64px; height: 64px;
+      background: linear-gradient(135deg, transparent 50%, #C99B2C 50%);
+      z-index: 3;
+    }
+    .tpt-cover .tc-kicker {
+      font-size: 15px; font-weight: 900; letter-spacing: .26em;
+      text-transform: uppercase; color: #FFE7AE; margin-bottom: 4px;
+    }
+    .tpt-cover .tc-kicker .accent {
+      color: #fff; background: #C99B2C; padding: 2px 8px;
+    }
+    .tpt-cover .tc-title {
+      font-size: 68px; font-weight: 900; line-height: .94;
+      letter-spacing: -.025em; color: #fff;
+    }
+    .tpt-cover .tc-tag {
+      margin-top: 14px; font-size: 17px; font-weight: 700;
+      color: #EAF1F8; line-height: 1.3; max-width: 560px;
+    }
+
+    .tpt-cover .tc-stats {
+      position: absolute; right: 28px; bottom: 28px;
+      width: 270px;
+      background: #fff; border: 1.5px solid #1F4E79;
+      padding: 18px 20px;
+      box-shadow: 0 14px 32px rgba(20,40,70,.22);
+      z-index: 10;
+    }
+    .tpt-cover .tc-stats .lead {
+      font-size: 12px; font-weight: 900; letter-spacing: .22em;
+      text-transform: uppercase; color: #1F4E79;
+      padding-bottom: 6px; border-bottom: 2px solid #1F4E79;
+      margin-bottom: 12px;
+    }
+    .tpt-cover .tc-stats .stat {
+      display: flex; align-items: baseline; gap: 12px;
+      margin: 8px 0;
+    }
+    .tpt-cover .tc-stats .stat .num {
+      font-size: 32px; font-weight: 900; color: #1F4E79;
+      line-height: 1; min-width: 56px;
+      font-variant-numeric: tabular-nums; letter-spacing: -.02em;
+    }
+    .tpt-cover .tc-stats .stat .lbl {
+      font-size: 12.5px; font-weight: 700; color: #33414f;
+      line-height: 1.2; text-transform: uppercase; letter-spacing: .04em;
+    }
+
+    .tpt-cover .tc-stamp {
+      position: absolute; left: 28px; bottom: 28px;
+      background: #1F4E79; color: #fff;
+      padding: 12px 18px; z-index: 10;
+      box-shadow: 0 10px 24px rgba(20,40,70,.22);
+    }
+    .tpt-cover .tc-stamp .top-line {
+      font-size: 11px; font-weight: 800; letter-spacing: .22em;
+      text-transform: uppercase; color: #FFE7AE;
+    }
+    .tpt-cover .tc-stamp .big {
+      font-size: 21px; font-weight: 900; letter-spacing: -.01em;
+      line-height: 1.05; margin-top: 2px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="ans-page">
+  <div class="pl-brand pl-brand--answer" style="margin-bottom:18px">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-835.47 -205.23 1773 470" role="img" aria-label="179 Prime Learning">
+  <g transform="matrix(3.65135, 0, 0, 3.65135, 3378.536722, 1066.514436)">
+    <path fill="#000000" d="M -1114.2 -339.25 C -1106.7 -338.42 -1099.3 -338.75 -1092.7 -336.52 C -1076.9 -331.18 -1070.8 -317.23 -1071.5 -304.99 C -1072.4 -288.91 -1083.8 -276.39 -1099.2 -274.29 C -1107 -273.23 -1115.1 -274.1 -1123.4 -274.1 C -1123.4 -277.98 -1123.4 -282.18 -1123.4 -286.95 C -1117.2 -286.95 -1111 -286.72 -1104.9 -287 C -1091.6 -287.62 -1083.2 -299.14 -1086.9 -311.96 C -1089.2 -319.96 -1095 -324.76 -1103.1 -325.51 C -1111.2 -326.25 -1119.3 -325.67 -1127.8 -325.67 C -1127.8 -295.42 -1127.8 -265.51 -1127.8 -235.32 C -1132.8 -235.32 -1137.4 -235.32 -1142.3 -235.32 C -1142.3 -269.78 -1142.3 -304.19 -1142.3 -339.25 C -1133.3 -339.25 -1124 -339.25 -1114.2 -339.25 Z"/>
+    <path fill="#000000" d="M -1074.2 -235.08 C -1079 -235.08 -1083.3 -235.08 -1088.4 -235.08 C -1088.4 -239.21 -1090.2 -265.02 -1087.9 -270.77 C -1085.7 -276.16 -1079.3 -279.84 -1074.1 -284.92 C -1074.1 -272.48 -1074.1 -260.83 -1074.1 -248.64 C -1061 -248.64 -1048.5 -248.64 -1010.122 -248.64 C -1010.122 -244.03 -1010.122 -239.95 -1010.122 -235.08 C -1048.3 -235.08 -1061 -235.08 -1074.2 -235.08 Z"/>
+    <path fill="#000000" d="M -1082.5 -335.91 C -1083.9 -336.93 -1085.1 -337.74 -1086.9 -338.96 C -1082.2 -338.96 -1078.2 -338.96 -1074.2 -338.96 C -1074.2 -335.52 -1074.2 -332.18 -1074.2 -328.47 C -1077.1 -331.11 -1079.6 -333.41 -1082.5 -335.91 Z"/>
+  </g>
+  <g fill="#000000" transform="matrix(1, 0, 0, 1, -1781.876518, -0.205348)">
+    <text textLength="1170" lengthAdjust="spacingAndGlyphs" style="font-family: 'Arial Rounded MT Bold', Nunito, Quicksand, 'Baloo 2', Verdana, sans-serif; font-size: 120px; font-weight: 800; white-space: pre;" x="270" y="222" dx="976.117" dy="-83.151">179 Prime Learning</text>
+  </g>
+  <rect x="459.203" y="-69.738" width="68.337" height="67.17" fill="#D9D9D9"/>
+  <rect x="664.229" y="-3.556" width="68.337" height="68.726" fill="#D9D9D9"/>
+  <rect x="800.741" y="-137.03" width="68.726" height="67.559" fill="#D9D9D9"/>
+</svg></div>
+  <h1>Scatter Plots — Describe the Correlation</h1>
+  <div class="sub">Answer key &middot; version 1168 &middot; negative</div>
+  <table>
+    
+    <tr><td class="k">Correlation</td><td class="val">negative</td></tr>
+    
+  </table>
+  <p style="margin-top:22px;font-size:9pt;color:#888">
+    Scanned from a printed card. Each version has unique numbers — confirm the
+    version number matches your sheet.
+  </p>
+</div>
+
+</body>
+</html>
